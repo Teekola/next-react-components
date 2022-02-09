@@ -1,5 +1,7 @@
-import Button from "../components/buttons/button";
 import styled from "styled-components";
+import Button from "../components/buttons/button";
+import Switch from "../components/buttons/switch";
+
 
 const StyledPage = styled.div`
     background: ${({ theme }) => theme.colors.background};
@@ -15,8 +17,7 @@ export default function ButtonsDemo() {
     return (
         <StyledPage>
             <Button>Button Text</Button>
-            <Button>Button Text</Button>
-            <Button>Button Text</Button>
+            <Switch />
         </StyledPage>
     )
 }
