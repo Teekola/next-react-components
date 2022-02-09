@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import AnimateInView from "../components/animateInView";
+import Layout from "../components/layout/layout";
 
 const StyledPage = styled.div`
     margin: 10rem 0rem;
@@ -17,11 +18,13 @@ const StyledBlock = styled.div`
 
 export default function AnimateInViewDemo() {
     return (
-        <StyledPage>
-            <AnimateInView><StyledBlock /></AnimateInView>
-            <AnimateInView once><StyledBlock /></AnimateInView>
-            <AnimateInView amount="some"><StyledBlock /></AnimateInView>
-            <AnimateInView variants={{ visible: {rotate: 45}, hidden: {rotate: -45}}}><StyledBlock /></AnimateInView>
-        </StyledPage>
+        <Layout>
+            <StyledPage>
+                <AnimateInView><StyledBlock /></AnimateInView>
+                <AnimateInView once><StyledBlock /></AnimateInView>
+                <AnimateInView amount="some"><StyledBlock /></AnimateInView>
+                <AnimateInView variants={{ visible: { rotate: 45 }, hidden: { rotate: -45 } }}><StyledBlock /></AnimateInView>
+            </StyledPage>
+        </Layout>
     )
 }
