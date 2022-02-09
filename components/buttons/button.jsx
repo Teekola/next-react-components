@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const StyledButton = styled(motion.button)`
     --background: ${({ theme }) => theme.colors.cta};
@@ -23,18 +24,23 @@ const StyledButton = styled(motion.button)`
         background: var(--backgroundHover);
         color: var(--textHover);
     }
+
+    :active {
+        transform: scale(.95);
+    }
 `
 
 export default function Button({ children }) {
-    const buttonVariants = {
-        tap: {
-            scale: .9,
-            transition: { type: "spring", duration: .1, ease: "easeInOut" }
-        },   
-    }
 
+    const button = useRef();
+    // Allow clicking with enter
+    const handleEnterDown = (e) => {
+        if (e.keyCode === 13) {
+            button.current.click();
+        }
+    }
     return (
-        <StyledButton whileHover="hover" whileTap="tap" variants={buttonVariants}>
+        <StyledButton ref={button} onClick={() => alert("Button has been clicked")} onKeyDown={(e) => handleEnterDown(e)}>
             {children}
         </StyledButton>
     )
