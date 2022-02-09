@@ -1,4 +1,3 @@
-import Head from "next/head";
 import styled from "styled-components";
 
 const StyledLayout = styled.div`
@@ -12,17 +11,11 @@ const StyledMain = styled.main`
     padding: 1rem 1rem;
 `
 
-export const siteTitle = 'Next JS React Component Library'
+
 
 export default function Layout({ children }) {
     return (
         <StyledLayout>
-            <Head>
-                <link rel="icon" href="/favicon.ico" />
-                <title>{siteTitle}</title>
-                <meta name="description" content="Components for Next JS projects." />
-                <meta name="og:title" content={siteTitle} />
-            </Head>
             <StyledMain>
                 {children}
             </StyledMain>

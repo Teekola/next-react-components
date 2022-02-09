@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 import Layout from "../components/layout/layout";
 
@@ -9,6 +10,7 @@ export default function Home() {
 		<Layout>
 			<StyledHome>
 				<h1>Home</h1>
+				<Link href="/navbar"><a>Navbar</a></Link>
 			</StyledHome>
 		</Layout>
 	)
