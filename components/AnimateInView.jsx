@@ -11,7 +11,7 @@ export default function AnimateInView({ once, amount, variants }) {
     // if they are given. Otherwise use default values
     const animateOnce = once ? once : true;
     const animationTreshold = amount ? amount : "all";
-    const variants = variants ? variants : {
+    const animationVariants = variants ? variants : {
         visible: { opacity: 1, x: 0, transition: { type: "spring", duration: 0.4, ease: "easeIn" } },
         hidden: { opacity: 0, x: -200, transition: { type: "spring", duration: 0.4, ease: "easeIn" } }
     }
@@ -20,7 +20,7 @@ export default function AnimateInView({ once, amount, variants }) {
         <motion.div
             initial="hidden"
             whileInView="visible" viewport={{ once: animateOnce, amount: animationTreshold }}
-            variants={variants}
+            variants={animationVariants}
         >
             {props.children}
         </motion.div>
