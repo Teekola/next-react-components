@@ -17,7 +17,6 @@ export default function Home() {
 				<ul>
 					<Link href="/navbar"><a>Navbar</a></Link>
 					<Link href="/animateInView"><a>Animate In View</a></Link>
-					<Link href="/locomotiveScroll"><a>Locomotive Scroll</a></Link>
 				</ul>
 			</StyledHome>
 		</Layout>
