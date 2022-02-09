@@ -1,12 +1,12 @@
 import { useRef } from "react";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
-import LocomotivePage from "./LocomotivePage";
-import "./locomotive.css";
+// This needs to be imported toplevel
+//import "../styles/locomotive.css";
 
 
 // Required packages: locomotive-scroll, react-locomotive-scroll
 // More information: https://github.com/locomotivemtl/locomotive-scroll
-export default function LocomotiveDemo() {
+export default function ScrollProvider({ children }) {
     const containerRef = useRef(null);
 
     // Options:
@@ -35,8 +35,8 @@ export default function LocomotiveDemo() {
             watch={locomotiveWatch}
             containerRef={containerRef}
         >
-            <div className="App" data-scroll-container ref={containerRef}>
-                <LocomotivePage />
+            <div data-scroll-container ref={containerRef}>
+                {children}
             </div>
         </LocomotiveScrollProvider>
     )

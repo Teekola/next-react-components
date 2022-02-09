@@ -38,7 +38,7 @@ const StyledContainer = styled.div`
     }
 `
 
-export default function LocomotivePage() {
+export default function LocomotiveScrollDemo() {
     return (
         <StyledContainer data-scroll-section>
             <div className="page">
