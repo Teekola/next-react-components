@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Head from "next/head";
 
 const StyledLayout = styled.div`
     min-height: 100vh;
@@ -12,13 +13,22 @@ const StyledMain = styled.main`
 `
 
 
+export const siteTitle = 'Next JS React Component Library';
 
 export default function Layout({ children }) {
     return (
-        <StyledLayout>
-            <StyledMain>
-                {children}
-            </StyledMain>
-        </StyledLayout>
+        <>
+            <Head>
+                <link rel="icon" href="/favicon.ico" />
+                <title>{siteTitle}</title>
+                <meta name="description" content="Components for Next JS projects." />
+                <meta name="og:title" content={siteTitle} />
+            </Head>
+            <StyledLayout>
+                <StyledMain>
+                    {children}
+                </StyledMain>
+            </StyledLayout>
+        </>
     )
 }
