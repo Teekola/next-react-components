@@ -11,7 +11,7 @@ const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffec
 /** A Wrapper for Elements to Add Parallax Effect.
  * @param {Int} offset  The strength of the parallax effect. The bigger the value, the more noticeable the effect.
  */
-export default function Parallax({ children, offset = 50, stiffness = 400, damping = 90 }) {
+export default function Parallax({ children, offset = 50, stiffness = 400, damping = 90, zIndex }) {
     const [elementTop, setElementTop] = useState(0);
     const [clientHeight, setClientHeight] = useState(0);
 
@@ -29,34 +29,26 @@ export default function Parallax({ children, offset = 50, stiffness = 400, dampi
     const final = elementTop + offset;
 
     // Get the transform value for the container's y-position:
-    const yRange = useTransform(scrollY, [initial, final], [offset, -offset]);
-    
-    // Apply spring to ease the transform
-    const y = useSpring(yRange, { stiffness, damping});
+    // If the value is negative, the element should move to opposite directions
+    const yRange = offset > 0 ? useTransform(scrollY, [initial, final], [offset, -offset]) : useTransform(scrollY, [elementTop + clientHeight, elementTop - offset], [-offset, offset]);
 
-    // Set the values for elementTop and clientHeight on mount and on resize
+    const y = useSpring(yRange, { stiffness, damping });
+
+
+
+    // Set the values for elementTop and clientHeight on mount
     useIsomorphicLayoutEffect(() => {
         const element = containerRef.current;
-        const onResize = () => {
-            // Use getBoundingClientRect in order to get the offset relative to the viewport
-            setElementTop(element.getBoundingClientRect().top + window.scrollY || window.pageYOffset);
-            setClientHeight(window.innerHeight);
-        }
-        // Set the values on mount
-        onResize();
-
-        // Add resize eventlistener to set the values on resize as well
-        window.addEventListener('resize', onResize);
-
-        // Cleanup: remove eventlistener
-        return () => window.removeEventListener('resize', onResize)
+        // Use getBoundingClientRect in order to get the offset relative to the viewport
+        setElementTop(element.getBoundingClientRect().top + window.scrollY || window.pageYOffset);
+        setClientHeight(window.innerHeight);
     }, [containerRef]);
 
     // Accessibility: if the user has enabled reduced motion on their device, do not use the parallax effect
     if (prefersReducedMotion) return <>{children}</>
 
     return (
-        <motion.div ref={containerRef} style={{ y }}>
+        <motion.div ref={containerRef} style={{ y, width: "100%", height: "100%", zIndex }}>
             {children}
         </motion.div>
     )
