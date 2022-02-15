@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import Parallax from "../components/parallax";
 import ParallaxBackgroundPiece from "../components/parallaxBackgroundPiece";
-import heroParallax1 from "../public/images/hero-parallax-1.png";
-import heroParallax2 from "../public/images/hero-parallax-2.png";
-import heroParallax3 from "../public/images/hero-parallax-3.png";
-import heroParallax4 from "../public/images/hero-parallax-4.png";
-import heroParallax5 from "../public/images/hero-parallax-5.png";
-import heroParallax6 from "../public/images/hero-parallax-6.png";
+import heroParallax1 from "../public/images/parallax-demo/hero-parallax-1.png";
+import heroParallax2 from "../public/images/parallax-demo/hero-parallax-2.png";
+import heroParallax3 from "../public/images/parallax-demo/hero-parallax-3.png";
+import heroParallax4 from "../public/images/parallax-demo/hero-parallax-4.png";
+import heroParallax5 from "../public/images/parallax-demo/hero-parallax-5.png";
+import heroParallax6 from "../public/images/parallax-demo/hero-parallax-6.png";
 
 const StyledHero = styled.div`
     margin: 0 auto;
