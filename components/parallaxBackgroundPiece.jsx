@@ -11,7 +11,7 @@ const StyledParallaxBackgroundPiece = styled.div`
 
     .image-container {
         position: relative;
-        width: 100%;
+        width: max-width;
         height: 100%;
     }
 `

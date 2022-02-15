@@ -19,6 +19,7 @@ export default function Home() {
 					<Link href="/animateInView"><a>Animate In View</a></Link>
 					<Link href="/buttons"><a>Buttons</a></Link>
 					<Link href="/parallax"><a>Parallax</a></Link>
+					<Link href="/images"><a>Images</a></Link>
 				</ul>
 			</StyledHome>
 		</Layout>
