@@ -15,7 +15,9 @@ export default function Navbar() {
     return (
         <>
             <Burger burgerOpen={burgerOpen} setBurgerOpen={setBurgerOpen} />
-            <Navlink />
+            <Navlink href="/" text="Home" />
+            <Navlink href="/" text="Home2" />
+            <Navlink href="/" text="Home3" />
         </>
     )
 }
