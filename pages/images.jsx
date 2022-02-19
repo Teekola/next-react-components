@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import Image from "next/image";
 import boatLandscape from "../public/images/images-demo/boat-landscape.jpg";
-import Parallax from "../components/parallax";
+import ParallaxHeroImage from "../components/imageComponents/parallaxHeroImage";
+import ResponsiveImage from "../components/imageComponents/responsiveImage";
+import GridImage from "../components/imageComponents/gridImage";
 
 const StyledPage = styled.div`
-    min-height: 700vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 15rem;
@@ -23,43 +24,6 @@ const StyledPage = styled.div`
     }
 `
 
-function ParallaxHeroImage({ src, alt, offset = 20 }) {
-    const heightOffset = Math.abs(offset);
-    return (
-        <Parallax offset={offset}>
-            <div style={{ position: "relative", width: "100%", height: `calc(100% + ${heightOffset}px)` }}>
-                <Image src={src} alt={alt} layout="fill" objectFit="cover" objectPosition="center center" priority draggable="false" />
-            </div>
-        </Parallax>
-    )
-}
-
-const ResponsiveImage = ({ src, alt }) => (
-    <Image src={src} alt={alt} layout="responsive" draggable="false" />
-)
-
-
-const GridImage = ({ src, alt, gridArea, objectPosition = "center center" }) => (
-    <div style={{ position: "relative", gridArea: gridArea }}>
-        <Image className="image" src={src} alt={alt} layout="fill" objectFit="cover" objectPosition={objectPosition} draggable="false" />
-    </div>
-)
-
-
-function ParallaxGridImage({ src, alt, gridArea, objectPosition = "center center", offset = 50 }) {
-    const heightOffset = Math.abs(offset);
-    return (
-        <div style={{ gridArea: gridArea, overflow: "hidden", display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
-            <Parallax offset={offset}>
-                <div style={{ position: "relative", width: "100%", height: `calc(100% + ${heightOffset}px)` }}>
-                    <Image className="image" src={src} alt={alt} layout="fill" objectFit="cover" objectPosition={objectPosition} draggable="false" />
-                </div>
-            </Parallax>
-        </div>
-    )
-}
-
-
 export default function ImagesDemo() {
     return (
         <StyledPage>
@@ -77,15 +41,6 @@ export default function ImagesDemo() {
                 <GridImage src={boatLandscape} alt="boat" gridArea={"second"} objectPosition="-300px center" />
                 <GridImage src={boatLandscape} alt="boat" gridArea={"third"} />
                 <GridImage src={boatLandscape} alt="boat" gridArea={"fourth"} />
-            </section>
-
-            <section className="grid">
-                <ParallaxGridImage src={boatLandscape} alt="boat" gridArea={"first"} />
-                <ParallaxGridImage src={boatLandscape} alt="boat" gridArea={"second"} />
-                <ParallaxGridImage src={boatLandscape} alt="boat" gridArea={"third"} />
-                <ParallaxGridImage src={boatLandscape} alt="boat" gridArea={"fourth"} />
-                <ParallaxGridImage src={boatLandscape} alt="boat" gridArea={"fifth"} />
-                <ParallaxGridImage src={boatLandscape} alt="boat" gridArea={"sixth"} />
             </section>
         </StyledPage>
     )
