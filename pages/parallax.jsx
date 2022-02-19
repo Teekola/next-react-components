@@ -46,6 +46,10 @@ const StyledMain = styled.main`
     @media screen and (min-width: 600px) and (max-height: 600px) {
         top: calc(100vh + 40 * 1vw);
     }
+
+    @media screen and (max-height: 600px) {
+        top: calc(100vh + 100vw);
+    }
 `
 
 
@@ -63,8 +67,7 @@ export default function ParallaxDemo() {
                 <Parallax offset={-100} zIndex={-300}><h1 className="h1">Parallax on siistiä!</h1></Parallax>
             </StyledHero>
 
-            <StyledMain>
-            </StyledMain>
+            <StyledMain />
         </>
     )
 }
