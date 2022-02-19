@@ -8,6 +8,16 @@ const Navlink = ({ href, text }) => (
     </Link>
 )
 
+function Navlinks() {
+    return (
+        <>
+            <Navlink href="/" text="Home" />
+            <Navlink href="/" text="Home2" />
+            <Navlink href="/" text="Home3" />
+        </>
+    )
+}
+
 export default function Navbar() {
     // State
     const [burgerOpen, setBurgerOpen] = useState(false);
@@ -15,9 +25,7 @@ export default function Navbar() {
     return (
         <>
             <Burger burgerOpen={burgerOpen} setBurgerOpen={setBurgerOpen} />
-            <Navlink href="/" text="Home" />
-            <Navlink href="/" text="Home2" />
-            <Navlink href="/" text="Home3" />
+            <Navlinks />
         </>
     )
 }
