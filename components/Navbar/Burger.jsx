@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion"
 
@@ -27,10 +26,7 @@ const StyledBurger = styled(motion.div)`
         //display: none;
     }
 `
-export default function Burger() {
-    // State
-    const [burgerOpen, setBurgerOpen] = useState(false);
-
+export default function Burger({ burgerOpen, setBurgerOpen }) {
     // Animation controls
     const burgerControls = useAnimation();
 
