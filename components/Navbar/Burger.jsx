@@ -67,7 +67,7 @@ export default function Burger() {
     }
     
     return (
-        <StyledBurger className="burger" initial="close" animate={burgerControls} variants={variants.burger} onClick={() => handleBurgerClick()}>
+        <StyledBurger className="burger" initial="close" animate={burgerControls} variants={variants.burger} onClick={handleBurgerClick}>
             <motion.div className="line" variants={variants.burgerLine1}></motion.div>
             <motion.div className="line" variants={variants.burgerLine2}></motion.div>
             <motion.div className="line" variants={variants.burgerLine3}></motion.div>
