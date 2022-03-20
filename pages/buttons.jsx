@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Button from "../components/buttons/button";
 import Switch from "../components/buttons/switch";
+import LinkButton from "../components/buttons/linkButton";
 
 
 const StyledPage = styled.div`
@@ -17,6 +18,7 @@ export default function ButtonsDemo() {
     return (
         <StyledPage>
             <Button>Button Text</Button>
+            <LinkButton href="/">Back to Home</LinkButton>
             <Switch />
         </StyledPage>
     )

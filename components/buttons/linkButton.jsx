@@ -11,11 +11,15 @@ const StyledA = styled.a`
     text-decoration: none;
     background: var(--background);
     border-radius: 1rem;
-    padding: .5rem 1rem;
+    padding: 1em 3em;
     display: flex;
     justify-content: center;
     color: var(--text);
     font-weight: bold;
+
+    :focus {
+        outline: 2px solid blue;
+    }
 
     :hover {
         cursor: pointer;
