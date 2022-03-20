@@ -21,6 +21,7 @@ const StyledButton = styled(motion.button)`
     }
 
     :hover {
+        cursor: pointer;
         background: var(--backgroundHover);
         color: var(--textHover);
     }
